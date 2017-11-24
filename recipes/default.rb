@@ -6,6 +6,9 @@
 
 include_recipe "java"
 
+# install grails
+include_recipe "grails-cookbook"
+grailsCmd = "JAVA_HOME=#{node.java.java_home} #{node['grails']['install_path']}/bin/grails"
 fileopsRepo = "#{Chef::Config[:file_cache_path]}/Filesutra"
 fileopsAdditionalConfig = "#{node.fileops.additional_config}"
 
