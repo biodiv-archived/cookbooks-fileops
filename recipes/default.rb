@@ -70,8 +70,6 @@ bash "copy fileops additional config" do
   chmod +r #{node.fileops.war}
   #rm -rf /tmp/fileops-temp
   EOH
- notifies :enable, "cerner_tomcat[#{node.fileops.tomcat_instance}]", :immediately
-  action :nothing
 end
 
 #  create additional-config
@@ -79,6 +77,13 @@ template fileopsAdditionalConfig do
   source "fileops-config.groovy.erb"
   notifies :run, "bash[compile_fileops]"
   notifies :run, "bash[copy fileops additional config]"
+end
+
+# Setup user/group
+poise_service_user "tomcat user" do
+  user "tomcat"
+  group "tomcat"
+  shell "/bin/bash"
 end
 
 cerner_tomcat node.fileops.tomcat_instance do
