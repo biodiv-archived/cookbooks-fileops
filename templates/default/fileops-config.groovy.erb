@@ -1,0 +1,48 @@
+dataSource {
+    username = "<%= node['fileops']['database-user'] %>"
+    password =  "<%= node['fileops']['database-password'] %>"
+}
+
+auth {
+    google {
+        CLIENT_ID = "<%= node['fileops']['googleClientId'] %>"
+        CLIENT_SECRET =  "<%= node['fileops']['googleClientSecret'] %>"
+        REDIRECT_URI = "http://<%= node.biodiv.servername %>/auth/googleCallback"
+    }
+
+    facebook {
+        CLIENT_ID =  "<%= node['fileops']['facebookClientId'] %>"
+        CLIENT_SECRET =  "<%= node['fileops']['facebookClientSecret'] %>"
+        REDIRECT_URI = "http://<%= node.biodiv.servername %>/auth/facebookCallback"
+    }
+
+    flickr {
+        CLIENT_ID =  "<%= node['fileops']['flickrClientId'] %>"
+        CLIENT_SECRET =  "<%= node['fileops']['flickrClientSecret'] %>"
+        REDIRECT_URI = "http://<%= node.biodiv.servername %>/auth/flickrCallback"
+    }
+    photos {
+        CLIENT_ID =  "<%= node['fileops']['photosClientId'] %>"
+        CLIENT_SECRET =  "<%= node['fileops']['photosClientSecret'] %>"
+        REDIRECT_URI = "http://<%= node.biodiv.servername %>/auth/photosCallback"
+    }
+
+    dropbox {
+        CLIENT_ID =  "<%= node['fileops']['dropboxClientId'] %>"
+        CLIENT_SECRET =  "<%= node['fileops']['dropboxClientSecret'] %>"
+        REDIRECT_URI = "https://<%= node.biodiv.servername %>/auth/dropboxCallback"
+    }
+  wikimedia {
+        AUTH_URL =  "http://<%= node.biodiv.servername %>/auth/wikimediaLogin"
+        REDIRECT_URI = "http://<%= node.biodiv.servername %>/auth/wikimediaCallback"
+    }
+
+}
+
+grails {
+    plugin {
+        cookiesession {
+            secret = "*****"
+        }
+    }
+}
