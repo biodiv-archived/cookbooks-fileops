@@ -11,6 +11,6 @@ default[:fileops][:war]       = "#{fileops.extracted}/target/fileops.war"
 default[:fileops][:download]  = "#{fileops.directory}/#{fileops.repository}-#{fileops.version}.zip"
 
 default[:fileops][:home] = "/usr/local/fileops"
-default[:fileops][:tomcat_instance]    = "fileops"
+default[:fileops][:tomcat_instance]    = "biodiv"
 default[:fileops][:additional_config] = "#{fileops.extracted}/#{node.fileops.appname}-config.groovy"
 
