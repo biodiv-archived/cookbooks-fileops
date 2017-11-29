@@ -1,7 +1,3 @@
-include_attribute "tomcat"
-
-expand!
-
 default[:fileops][:version]   = "master"
 default[:fileops][:appname]   = "filesutra"
 default[:fileops][:repository]   = "Filesutra"
