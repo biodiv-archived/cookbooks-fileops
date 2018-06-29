@@ -48,7 +48,7 @@ end
 bash "compile_fileops" do
   code <<-EOH
   cd #{node.fileops.extracted}
-  yes | #{grailsCmd} upgrade
+  yes | #{grailsCmd} set-grails-version #{node["grails"]["version"]}
   export FILESUTRA_CONFIG=#{fileopsAdditionalConfig}
   yes | #{grailsCmd} -Dgrails.env=kk war  #{node.fileops.war}
   chmod +r #{node.fileops.war}
