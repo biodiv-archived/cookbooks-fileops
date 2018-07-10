@@ -6,6 +6,9 @@
 
 include_recipe "java"
 
+# setup biodiv database 
+include_recipe "fileops::database"
+
 # install grails
 include_recipe "grails-cookbook"
 grailsCmd = "JAVA_HOME=#{node.java.java_home} #{node['grails']['install_path']}/bin/grails"
