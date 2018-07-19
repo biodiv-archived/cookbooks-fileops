@@ -90,7 +90,7 @@ poise_service_user "tomcat user" do
 end
 
 cerner_tomcat node.fileops.tomcat_instance do
-  version "7.0.54"
+  version "8.5.27"
   web_app "fileops" do
     source "file://#{node.fileops.war}"
   end
